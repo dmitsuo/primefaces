@@ -259,9 +259,7 @@ public abstract class BaseMenuRenderer extends OutcomeTargetRenderer {
         Object value = menuitem.getValue();
 
         if (icon != null) {
-            writer.startElement("span", null);
-            writer.writeAttribute("class", AbstractMenu.MENUITEM_ICON_CLASS + " " + icon, null);
-            writer.endElement("span");
+            encodeUserIcon(context, icon, AbstractMenu.MENUITEM_ICON_CLASS);
         }
 
         writer.startElement("span", null);
@@ -410,5 +408,12 @@ public abstract class BaseMenuRenderer extends OutcomeTargetRenderer {
         writer.writeAttribute("tabindex", menu.getTabindex(), null);
         writer.writeAttribute("class", "ui-helper-hidden-accessible", null);
         writer.endElement("div");
+    }
+    
+    protected void encodeUserIcon(FacesContext context, String userIcon, String iconPrefix) throws IOException {
+        ResponseWriter writer = context.getResponseWriter();
+        writer.startElement("span", null);
+        writer.writeAttribute("class", iconPrefix + " " + userIcon, null);
+        writer.endElement("span");
     }
 }

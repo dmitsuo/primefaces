@@ -136,9 +136,7 @@ public class MegaMenuRenderer extends BaseMenuRenderer {
         writer.writeAttribute("tabindex", "-1", null);
 
         if (icon != null) {
-            writer.startElement("span", null);
-            writer.writeAttribute("class", Menu.MENUITEM_ICON_CLASS + " " + icon, null);
-            writer.endElement("span");
+            encodeUserIcon(context, icon, Menu.MENUITEM_ICON_CLASS);
         }
 
         if (label != null) {

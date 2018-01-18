@@ -177,9 +177,7 @@ public class PanelMenuRenderer extends BaseMenuRenderer {
 
         //user icon
         if (hasIcon) {
-            writer.startElement("span", null);
-            writer.writeAttribute("class", "ui-icon " + icon, null);
-            writer.endElement("span");
+            encodeUserIcon(context, icon, "ui-icon");
         }
 
         //submenu label
